@@ -45,16 +45,20 @@ document.addEventListener("DOMContentLoaded", () => {
             'Content-Type': 'applicaton/json',
             'Accept': 'application/json'
           },
-          body: JSON.stringify(toy.likes)
-        });
-        render(toys);
+          body: JSON.stringify({"likes": toy.likes})
+        }).then(resp => resp.json())
+        .then(object => {
+          render(toys)
+        })
       });
+
+
     })
   }
 
   const addToyButton = document.querySelector('.submit');
   addToyButton.addEventListener('click', (e) => {
-    let newToyName = document.getElementsByClassName('input-text')[0].Value;
+    let newToyName = document.getElementsByClassName('input-text')[0].value;
     let newToyPic = document.getElementsByClassName('input-text')[1].value;
 
     fetch('http://localhost:3000/toys', {
