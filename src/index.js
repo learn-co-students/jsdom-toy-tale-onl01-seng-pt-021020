@@ -34,20 +34,24 @@ document.addEventListener("DOMContentLoaded", () => {
       toyCollection.append(card);
 
       let likeButton = card.querySelector('.like-btn');
-      let dislikeButton = card.querySelector('.dislike-btn');
       
       likeButton.addEventListener('click', (e) => {
         e.preventDefault();
-        toy.likes = parseInt(toy.likes) + 1;
+        const newLike = parseInt(e.target.previousElementSibling.innerText.split(":")[1]) + 1
         fetch(`http://localhost:3000/toys/${toy.id}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'applicaton/json',
             'Accept': 'application/json'
           },
-          body: JSON.stringify(toy.likes)
-        });
-        render(toys);
+          body: JSON.stringify({"likes": newLike})
+        })
+        .then(res => res.json())
+        .then(specificToy =>  {
+          debugger
+          toy.likes = parseInt(specificToy.likes)
+        })
+        //render(toys);
       });
     })
   }
