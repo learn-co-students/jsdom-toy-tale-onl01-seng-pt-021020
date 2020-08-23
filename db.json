@@ -47,6 +47,26 @@
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": -2
+    },
+    {
+      "image": "https://images-na.ssl-images-amazon.com/images/I/81UhAtZfcsL._AC_SL1500_.jpg",
+      "likes": 0,
+      "id": 9
+<<<<<<< HEAD
+=======
+    },
+    {
+      "name": "skateer",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/81UhAtZfcsL._AC_SL1500_.jpg",
+      "likes": 0,
+      "id": 10
+    },
+    {
+      "name": "SANIC",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/81UhAtZfcsL._AC_SL1500_.jpg",
+      "likes": 0,
+      "id": 11
+>>>>>>> 51dfc870e6924592de45e2080918b41fac847d3e
     }
   ]
 }
