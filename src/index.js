@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// since the required library is deprecated i have to build a backend for this 
+// and so i will do it as its own example for now just to pass the lab more code is needed
 let addToy2 = false;
 
 document.addEventListener("DOMContentLoaded", () => {
