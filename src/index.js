@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		} else {
 			toyFormContainer.style.display = 'none';
 		}
-		
 		fetch('http://localhost:3000/toys')
 			.then(function(response) {
 				return response.json();
@@ -19,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			.then(function(object) {
 				makeToyCards(object);
 			});
-
 		const toyForm = document.querySelector('.add-toy-form');
 		toyForm.addEventListener('submit', () => {
 			event.preventDefault();
@@ -83,4 +81,22 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
+	function likeToy() {
+		event.preventDefault();
+		let likes = event.target.previousElementSibling.innerText;
+		likes = parseInt(likes) + 1;
+		let configObj = {
+			method: 'PATCH',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json'
+			},
+			body: JSON.stringify({
+				likes: likes
+			})
+		};
+
+		fetch(`http://localhost:3000/toys/${event.target.id}`, configObj).then((res) => res.json());
+		event.target.previousElementSibling.innerText = `${likes} likes`;
+	}
 });
